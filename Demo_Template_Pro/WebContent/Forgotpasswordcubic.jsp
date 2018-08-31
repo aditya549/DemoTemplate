@@ -28,11 +28,20 @@ margin-right: 400px
 <table align="center">
 <% 
 String email=(String)request.getAttribute("email");
+String errmsg=(String)request.getAttribute("errmsg");
 %>
+<% if(errmsg==null){%>
 <tr><td >You'r Email Id</td><td><input type="text" name="email" id="email" value="<%=email %>" readonly="readonly"></td></tr>
-<tr><td >Enter New Password</td><td><input type="password" name="password" id="pass"></td></tr>
+<tr><td >Enter New Password</td><td><input type="password" name="password" id="pass" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></td></tr>
 <tr><td >Re-Enter New Password</td><td><input type="password" name="chkpassword" id="pass1"></td></tr>
 <tr align="right"><td><input type="submit" value="Change Passowrd"></td></tr>
+<% }else{%>
+<tr><td >You'r Email Id</td><td><input type="text" name="email" id="email" value="<%=email %>" readonly="readonly"></td></tr>
+<tr><td>Enter New Password</td><td><input type="password" name="password" id="pass" required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></td></tr>
+<tr><td colspan="2"><p style="color:red"><%=errmsg %></p></tr></td>
+<tr><td >Re-Enter New Password</td><td><input type="password" name="chkpassword" id="pass1"></td></tr>
+<tr align="right"><td><input type="submit" value="Change Passowrd"></td></tr>
+<% }%>
 </table>
 </form>
 <hr>
@@ -40,9 +49,17 @@ String email=(String)request.getAttribute("email");
 function validateForm() {
     var x = document.getElementById("pass").value;
     var y = document.getElementById("pass1").value;
+    var minNumberofChars = 8;
+    var maxNumberofChars = 16;
+    alert("Password Is "+x);
     if (x == "") {
         alert("Password must be filled out");
         return false;
+    }
+    if(x.length < minNumberofChars || x.length > maxNumberofChars)
+    {
+    	alert("password should contain min 6 characters max 16 Only");
+    	return false;
     }
     if (y == "") {
         alert("RePassword must be filled out");
@@ -53,7 +70,6 @@ function validateForm() {
     	 return false;
     }
     return true;
-    
 }
 </script>
 </body>

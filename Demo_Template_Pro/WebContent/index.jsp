@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    rel="stylesheet">
 	<!-- //web-fonts -->
 </head>
-
+<% session.invalidate(); %>
 <body>
 	<div class="video-w3l" data-vide-bg="video/1">
 		<!-- title -->

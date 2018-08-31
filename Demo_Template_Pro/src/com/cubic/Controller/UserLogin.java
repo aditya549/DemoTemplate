@@ -28,11 +28,12 @@ public class UserLogin extends HttpServlet{
 			HttpSession session=req.getSession(true);
 			session.setAttribute("userbean", ub);
 			res.sendRedirect("UserHome.jsp");
-		}else
+		}else {
 			System.out.println("inValid UserDetails");
-			out.println("<p style='text-align:center'>Invalid Admin Details </p>");
+			/*out.println("<p style='text-align:center'>Invalid Admin Details </p>");
 			RequestDispatcher rd=req.getRequestDispatcher("index.jsp");
-			rd.include(req, res);
+			rd.include(req, res);*/
 			
+		}
 	}
 }

@@ -12,7 +12,7 @@ public class ForgotPasswordDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","reddy","reddy");
-			PreparedStatement pst=con.prepareStatement("select * from userlogin where email=?");
+			PreparedStatement pst=con.prepareStatement("select * from UserLogin where email=?");
 			pst.setString(1, user.getEmail());
 			ResultSet rs=pst.executeQuery();
 			boolean b=rs.next();

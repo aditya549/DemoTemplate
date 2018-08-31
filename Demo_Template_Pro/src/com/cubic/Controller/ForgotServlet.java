@@ -37,7 +37,7 @@ public class ForgotServlet extends HttpServlet{
 		if(b){
 			
 			String to=targetmailid;//change accordingly
-			String from="gangareddygogu@gmail.com";
+			String from="cubicitsolutioninterview@gmail.com";
 			String password="1100reddy";
 			Random rand = new Random();
 			int otp = rand.nextInt(900000) + 100000;
