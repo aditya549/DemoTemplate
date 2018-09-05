@@ -14,7 +14,7 @@
 	
 	%>
 	<script>alert("log out success");</script>
-	<script>window.location.href="http://localhost:8085/DemoTemplate/index.jsp"</script>
+	<script>window.location.href="http://localhost:8092/Demo_Template_Pro/index.jsp"</script>
 
 </body>
 </html>
